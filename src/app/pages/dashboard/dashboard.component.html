@@ -1,7 +1,6 @@
-<div *ngIf="useralias !== ''" style="font-weight: normal" style="margin-left: 50px">
+<div *ngIf="useralias !== ''">
 
-  {{ 'Welcome' }}
-
+<p id="willkommen">Willkommen {{useralias}}</p>
 </div>
 <div *ngIf="!useralias || useralias === ''">
   <app-app-login></app-app-login>

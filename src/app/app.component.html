@@ -1,6 +1,5 @@
-<p>
   <mat-toolbar>
-   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button (click)="drawer.toggle()" color="primary" mat-icon-button type="button">
     <mat-icon>menu</mat-icon>
   </button>
   <span>Ko System</span>
@@ -13,7 +12,6 @@
     </button>
   </div>
 </mat-toolbar>
-</p>
 
 
 <mat-drawer-container class="koSystem-container" style="height: 100%; overflow: hidden">
@@ -21,23 +19,23 @@
     <div>
       <div>
         <button [routerLink]="['dashboard']" color="primary" mat-button>
-          <mat-icon>dashboard</mat-icon>&nbsp;{{'dashboard' }}</button>
+          <mat-icon>dashboard</mat-icon>&nbsp;{{'Dashboard' }}</button>
       </div>
       <div>
-        <button [routerLink]="['teams']" color="primary" mat-button>
-          <mat-icon>business</mat-icon>&nbsp;{{'nav.teams'  }}</button>
+        <button [routerLink]="['teams-detail']" color="primary" mat-button>
+          <mat-icon>groups</mat-icon>&nbsp;{{'Teams'  }}</button>
       </div>
       <div>
-        <button [routerLink]="['favoriteTeam']" color="primary" mat-button>
-          <mat-icon>badge</mat-icon>&nbsp;{{'nav.favoriteTeam' }}</button>
+        <button [routerLink]="['favorite-team-detail']" color="primary" mat-button>
+          <mat-icon>favorite</mat-icon>&nbsp;{{'Favorite Team' }}</button>
       </div>
       <div>
-        <button [routerLink]="['tournament']" color="primary" mat-button>
-          <mat-icon>garage_outline</mat-icon>&nbsp;{{'nav.tournament'  }}</button>
+        <button [routerLink]="['tournament-detail']" color="primary" mat-button>
+          <mat-icon>public</mat-icon>&nbsp;{{'Tournament'  }}</button>
       </div>
       <div>
-        <button [routerLink]="['tournamentMember']" color="primary" mat-button>
-          <mat-icon>shopping_basket</mat-icon>&nbsp;{{'nav.tournamentmember'  }}</button>
+        <button [routerLink]="['member-detail']" color="primary" mat-button>
+          <mat-icon>group_add</mat-icon>&nbsp;{{'Tournament Member'  }}</button>
       </div>
     </div>
 

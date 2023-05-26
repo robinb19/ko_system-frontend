@@ -16,6 +16,14 @@ import { AppLoginComponent } from './components/app-login/app-login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MemberListComponent } from './pages/member-list/member-list.component';
+import { MemberDetailComponent } from './pages/member-detail/member-detail.component';
+import { FavoriteTeamListComponent } from './pages/favorite-team-list/favorite-team-list.component';
+import { FavoriteTeamDetailComponent } from './pages/favorite-team-detail/favorite-team-detail.component';
+import { TeamsDetailComponent } from './pages/teams-detail/teams-detail.component';
+import { TeamsListComponent } from './pages/teams-list/teams-list.component';
+import { TournamentListComponent } from './pages/tournament-list/tournament-list.component';
+import { TournamentDetailComponent } from './pages/tournament-detail/tournament-detail.component';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/ILV',
@@ -40,7 +48,15 @@ export function storageFactory(): OAuthStorage {
   declarations: [
     AppComponent,
     AppLoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    MemberListComponent,
+    MemberDetailComponent,
+    FavoriteTeamListComponent,
+    FavoriteTeamDetailComponent,
+    TeamsDetailComponent,
+    TeamsListComponent,
+    TournamentListComponent,
+    TournamentDetailComponent
   ],
   imports: [
     BrowserModule,
