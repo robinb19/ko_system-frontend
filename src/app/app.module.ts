@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AuthConfig, OAuthModule, OAuthStorage } from 'angular-oauth2-oidc';
 import { environment } from 'src/environments/environment.development';
-import { HTTP_INTERCEPTORS, HttpClientXsrfModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { HttpXSRFInterceptor } from './interceptor/http.csrf.interceptor';
+import { AppAuthGuard } from './guard/app.auth.guard';
+import { AppAuthService } from './service/app.auth.service';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/ILV',
@@ -36,8 +39,9 @@ export function storageFactory(): OAuthStorage {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule,
+    MatButtonModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
@@ -53,4 +57,8 @@ export function storageFactory(): OAuthStorage {
     Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(authService: AppAuthService) {
+    authService.initAuth().finally();
+  }
+}
