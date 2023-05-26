@@ -1,8 +1,12 @@
-<div >
-  <button (click)="login()"  color="accent" mat-raised-button>Login</button>
+<div *ngIf="oauthService.hasValidAccessToken()" style="margin-top: 50px">
+  <button (click)="logout()" color="warn" mat-button>
+    <mat-icon>logout</mat-icon>
+
+    {{ 'logout'}}
+  </button>
 </div>
 
-<div >
-  <button (click)="logout()" color="primary" mat-flat-button>Logout</button>
+<div>
+  <router-outlet></router-outlet>
 </div>
 

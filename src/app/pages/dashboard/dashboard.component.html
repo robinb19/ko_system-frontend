@@ -1,0 +1,8 @@
+<div *ngIf="useralias !== ''" style="font-weight: bold">
+
+  {{ 'dashboard.welcome' }}
+
+</div>
+<div *ngIf="!useralias || useralias === ''">
+  <app-app-login></app-app-login>
+</div>
