@@ -14,6 +14,8 @@ import { AppAuthService } from './service/app.auth.service';
 import {MatIconModule} from '@angular/material/icon';
 import { AppLoginComponent } from './components/app-login/app-login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/ILV',
@@ -47,6 +49,8 @@ export function storageFactory(): OAuthStorage {
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',

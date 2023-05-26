@@ -1,12 +1,52 @@
-<div *ngIf="oauthService.hasValidAccessToken()" style="margin-top: 50px">
-  <button (click)="logout()" color="warn" mat-button>
-    <mat-icon>logout</mat-icon>
-
-    {{ 'logout'}}
+<p>
+  <mat-toolbar>
+   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
   </button>
-</div>
+  <span>Ko System</span>
+  <span class="example-spacer"></span>
+
+  <div *ngIf="oauthService.hasValidAccessToken()">
+    <button (click)="logout()" color="warn" mat-button>
+      <mat-icon>logout</mat-icon>
+      {{ 'logout'}}
+    </button>
+  </div>
+</mat-toolbar>
+</p>
+
+
+<mat-drawer-container class="koSystem-container" style="height: 100%; overflow: hidden">
+  <mat-drawer #drawer [opened]="true" class="koSystem-sidenav" mode="side">
+    <div>
+      <div>
+        <button [routerLink]="['dashboard']" color="primary" mat-button>
+          <mat-icon>dashboard</mat-icon>&nbsp;{{'dashboard' }}</button>
+      </div>
+      <div>
+        <button [routerLink]="['teams']" color="primary" mat-button>
+          <mat-icon>business</mat-icon>&nbsp;{{'nav.teams'  }}</button>
+      </div>
+      <div>
+        <button [routerLink]="['favoriteTeam']" color="primary" mat-button>
+          <mat-icon>badge</mat-icon>&nbsp;{{'nav.favoriteTeam' }}</button>
+      </div>
+      <div>
+        <button [routerLink]="['tournament']" color="primary" mat-button>
+          <mat-icon>garage_outline</mat-icon>&nbsp;{{'nav.tournament'  }}</button>
+      </div>
+      <div>
+        <button [routerLink]="['tournamentMember']" color="primary" mat-button>
+          <mat-icon>shopping_basket</mat-icon>&nbsp;{{'nav.tournamentmember'  }}</button>
+      </div>
+    </div>
+
+  </mat-drawer>
+
 
 <div>
   <router-outlet></router-outlet>
 </div>
+
+
 
