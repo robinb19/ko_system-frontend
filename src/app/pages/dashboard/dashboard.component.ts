@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   username = '';
 
   constructor(private authService: AppAuthService, private headerService: HeaderService) {
-    this.headerService.setPage('nav.dashboard');
+    this.headerService.setPage('dashboard');
   }
 
   ngOnInit(): void {

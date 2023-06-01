@@ -19,32 +19,33 @@
     <div>
       <div>
         <button [routerLink]="['dashboard']" color="primary" mat-button>
-          <mat-icon>dashboard</mat-icon>&nbsp;{{'Dashboard' }}</button>
+          <mat-icon>dashboard</mat-icon>&nbsp;{{'Dashboard'}}</button>
       </div>
       <div>
-        <button [routerLink]="['teams-detail']" color="primary" mat-button>
-          <mat-icon>groups</mat-icon>&nbsp;{{'Teams'  }}</button>
+        <button [routerLink]="['teams-list']" color="primary" mat-button>
+          <mat-icon>groups</mat-icon>&nbsp;{{'Team'}}</button>
       </div>
       <div>
-        <button [routerLink]="['favorite-team-detail']" color="primary" mat-button>
+        <button [routerLink]="['favorite-team-list']" color="primary" mat-button>
           <mat-icon>favorite</mat-icon>&nbsp;{{'Favorite Team' }}</button>
       </div>
       <div>
-        <button [routerLink]="['tournament-detail']" color="primary" mat-button>
-          <mat-icon>public</mat-icon>&nbsp;{{'Tournament'  }}</button>
+        <button [routerLink]="['tournament-list']" color="primary" mat-button>
+          <mat-icon>public</mat-icon>&nbsp;{{'Tournament'}}</button>
       </div>
       <div>
-        <button [routerLink]="['member-detail']" color="primary" mat-button>
-          <mat-icon>group_add</mat-icon>&nbsp;{{'Tournament Member'  }}</button>
+        <button [routerLink]="['member-list']" color="primary" mat-button>
+          <mat-icon>group_add</mat-icon>&nbsp;{{'Tournament Member'}}</button>
       </div>
     </div>
 
   </mat-drawer>
 
+  <div class="koSystem-container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
 
-<div>
-  <router-outlet></router-outlet>
-</div>
 
 
 

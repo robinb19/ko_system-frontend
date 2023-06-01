@@ -1,1 +1,34 @@
-<p>teams-list works!</p>
+<h1>Teams</h1>
+<div>
+  <div>
+    <mat-toolbar *appIsInRole="'readWrite'" color="primary">
+      <span>
+        <button (click)="add()" *appIsInRole="'readWrite'" color="primary" mat-button style="color: white">
+          <mat-icon>add</mat-icon>
+          Add new Team
+        </button>
+      </span>
+    </mat-toolbar>
+  </div>
+  <table [dataSource]="teamsDataSource" class="mat-elevation-z8 teams-table" mat-table>
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef class="w-75 th-center" mat-header-cell></th>
+      <td *matCellDef="let element" mat-cell style="text-align: end">
+        <button (click)="edit(element)" *appIsInRole="'readWrite'" color="primary" mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="delete(element)" *appIsInRole="'readWrite'" color="warn" mat-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="teamName">
+      <th *matHeaderCellDef mat-header-cell>Team Name</th>
+      <td *matCellDef="let element" mat-cell> {{element.teamName}} </td>
+    </ng-container>
+    <tr *matHeaderRowDef="columns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: columns;" mat-row></tr>
+  </table>
+
+</div>
+

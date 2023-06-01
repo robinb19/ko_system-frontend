@@ -24,13 +24,23 @@ import { TeamsDetailComponent } from './pages/teams-detail/teams-detail.componen
 import { TeamsListComponent } from './pages/teams-list/teams-list.component';
 import { TournamentListComponent } from './pages/tournament-list/tournament-list.component';
 import { TournamentDetailComponent } from './pages/tournament-detail/tournament-detail.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { IsInRoleDirective } from './dir/is.in.role.dir';
+import { IsInRolesDirective } from './dir/is.in.roles.dir';
+import { MatInputModule } from '@angular/material/input';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/ILV',
   requireHttps: false,
   redirectUri: environment.frontendBaseUrl,
   postLogoutRedirectUri: environment.frontendBaseUrl,
-  clientId: 'demoapp',
+  clientId: 'Ko_system',
   scope: 'openid profile roles offline_access',
   responseType: 'code',
   showDebugInformation: true,
@@ -56,7 +66,10 @@ export function storageFactory(): OAuthStorage {
     TeamsDetailComponent,
     TeamsListComponent,
     TournamentListComponent,
-    TournamentDetailComponent
+    TournamentDetailComponent,
+    ConfirmDialogComponent,
+    IsInRoleDirective,
+    IsInRolesDirective
   ],
   imports: [
     BrowserModule,
@@ -67,6 +80,18 @@ export function storageFactory(): OAuthStorage {
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatTableModule,
+    MatSnackBarModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',

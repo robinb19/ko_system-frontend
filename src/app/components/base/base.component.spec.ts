@@ -1,8 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {BaseComponent} from './base.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
-import {HttpLoaderFactory} from '../../../../../demo-app-frontend/src/app/app.module';
+import {HttpLoaderFactory} from '../../app.module';
+import {createSpyFromClass} from 'jasmine-auto-spies';
 
 describe('BaseComponent', () => {
   let component: BaseComponent;
