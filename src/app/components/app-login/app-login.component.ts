@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AppAuthService } from 'src/app/service/app.auth.service';
 
 @Component({
-  selector: 'app-app-login',
+  selector: 'app-login',
   templateUrl: './app-login.component.html',
   styleUrls: ['./app-login.component.scss']
 })
