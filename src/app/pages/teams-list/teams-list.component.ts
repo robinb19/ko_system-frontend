@@ -56,8 +56,8 @@ export class TeamsListComponent extends BaseComponent implements OnInit, AfterVi
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: '400px',
       data: {
-        title: 'dialogs.title_delete',
-        message: 'dialogs.message_delete'
+        title: 'Are you sure?',
+        message: 'Do you really want to delete this entry?'
       }
     });
 

@@ -34,6 +34,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { IsInRoleDirective } from './dir/is.in.role.dir';
 import { IsInRolesDirective } from './dir/is.in.roles.dir';
 import { MatInputModule } from '@angular/material/input';
+import { NoAccessComponent } from './pages/no-access/no-access.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/ILV',
@@ -59,6 +62,7 @@ export function storageFactory(): OAuthStorage {
     AppComponent,
     AppLoginComponent,
     DashboardComponent,
+    NoAccessComponent,
     MemberListComponent,
     MemberDetailComponent,
     FavoriteTeamListComponent,
@@ -89,9 +93,12 @@ export function storageFactory(): OAuthStorage {
     ReactiveFormsModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatDialogModule,
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',

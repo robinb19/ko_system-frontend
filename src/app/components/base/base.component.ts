@@ -6,12 +6,12 @@ import {Component} from '@angular/core';
 })
 export class BaseComponent {
 
-  protected messageSaved = '';
-  protected messageError = '';
-  protected messageNewSaved = '';
-  protected messageNewError = '';
-  protected messageClose = '';
-  protected deletedMessage = '';
-  protected deleteErrorMessage = '';
-  protected closeMessage = '';
+  protected messageSaved = 'Item saved';
+  protected messageError = 'Error';
+  protected messageNewSaved = 'New item saved';
+  protected messageNewError = 'New item could not be saved';
+  protected messageClose = 'Close';
+  protected deletedMessage = 'Item deleted';
+  protected deleteErrorMessage = 'Item could not be deleted';
+  protected closeMessage = 'Close';
 }

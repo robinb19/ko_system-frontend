@@ -1,4 +1,4 @@
-
+<h1>Add a Team</h1>
 <div>
   <div>
     <mat-toolbar color="primary">
@@ -15,8 +15,8 @@
     <form (ngSubmit)="save(objForm.value)" [formGroup]="objForm!">
       <mat-form-field>
         <mat-label>Teamname</mat-label>
-        <input #inputName appAutofocus formControlName="teamName" matInput maxlength="255" required>
-        <mat-hint align="end">{{inputName.value.length || 0}}/255</mat-hint>
+        <input #inputteamName appAutofocus formControlName="teamName" matInput maxlength="255" required>
+        <mat-hint align="end">{{inputteamName.value.length || 0}}/255</mat-hint>
       </mat-form-field>
       <button [disabled]="!objForm.valid" color="primary" mat-raised-button style="width: 200px">
         Save
