@@ -1,6 +1,6 @@
 export class Tournament{
   public id!: number;
-  public tournamentname = '';
-  public eventlocation = '';
-  public todate = new Date();
+  public tournamentName = '';
+  public tournamentLocation = '';
+  public toDate = new Date();
 }

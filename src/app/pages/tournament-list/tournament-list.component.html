@@ -1,1 +1,43 @@
-<p>tournament-list works!</p>
+<h1>Tournaments</h1>
+<div>
+  <div>
+    <mat-toolbar *appIsInRole="'readWrite'" color="primary">
+      <span>
+        <button (click)="add()" *appIsInRole="'readWrite'" color="primary" mat-button style="color: white">
+          <mat-icon>add</mat-icon>
+          Add new Tournament
+        </button>
+      </span>
+    </mat-toolbar>
+  </div>
+  <table [dataSource]="tournamentDataSource" class="mat-elevation-z8 teams-table" mat-table>
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef class="w-75 th-center" mat-header-cell></th>
+      <td *matCellDef="let element" mat-cell style="text-align: end">
+        <button (click)="edit(element)" *appIsInRole="'readWrite'" color="primary" mat-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="delete(element)" *appIsInRole="'readWrite'" color="warn" mat-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="tournamentName">
+      <th *matHeaderCellDef mat-header-cell>Tournament Name</th>
+      <td *matCellDef="let element" mat-cell> {{element.tournamentName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="tournamentLocation">
+      <th *matHeaderCellDef mat-header-cell>Tournament Location</th>
+      <td *matCellDef="let element" mat-cell> {{element.tournamentLocation}} </td>
+    </ng-container>
+    <ng-container matColumnDef="toDate">
+      <th *matHeaderCellDef mat-header-cell>Date</th>
+      <td *matCellDef="let element" mat-cell> {{element.toDate}} </td>
+    </ng-container>
+    <tr *matHeaderRowDef="columns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: columns;" mat-row></tr>
+  </table>
+
+</div>
+
+
