@@ -1,0 +1,5 @@
+<mat-icon color="warn" style="font-size: 200px">Warning</mat-icon>
+
+<a>You have no access</a>
+
+<app-login *ngIf="!oauthService.hasValidAccessToken()"></app-login>
