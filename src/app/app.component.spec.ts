@@ -1,13 +1,30 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
+import {AuthConfig, OAuthModule} from 'angular-oauth2-oidc';
+import {HttpClientModule} from '@angular/common/http';
+import {authConfig, } from './app.module';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        OAuthModule.forRoot({resourceServer: {sendAccessToken: true}}),
+        MatMomentDateModule,
+        MatToolbarModule,
+        HttpClientModule,
+        MatIconModule,
+        MatSidenavModule
       ],
+      providers: [
+        //{provide: HttpClient, useValue: createSpyFromClass(HttpClient)},
+        {provide: AuthConfig, useValue: authConfig}],
       declarations: [
         AppComponent
       ],
@@ -20,16 +37,4 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ko_system-frontend'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ko_system-frontend');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ko_system-frontend app is running!');
-  });
 });

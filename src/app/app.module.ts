@@ -33,6 +33,9 @@ import { MatInputModule } from '@angular/material/input';
 import { NoAccessComponent } from './pages/no-access/no-access.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import { FavoriteListComponent } from './pages/favorite-list/favorite-list.component';
+import { FavoriteDetailComponent } from './pages/favorite-detail/favorite-detail.component';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/ILV',
@@ -65,7 +68,9 @@ export function storageFactory(): OAuthStorage {
     TournamentDetailComponent,
     ConfirmDialogComponent,
     IsInRoleDirective,
-    IsInRolesDirective
+    IsInRolesDirective,
+    FavoriteDetailComponent,
+    FavoriteListComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +83,7 @@ export function storageFactory(): OAuthStorage {
     MatToolbarModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatMomentDateModule,
     MatDialogModule,
     MatTableModule,
     MatSnackBarModule,
