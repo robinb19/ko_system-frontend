@@ -8,6 +8,7 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 describe('AppComponent', () => {
@@ -20,7 +21,8 @@ describe('AppComponent', () => {
         MatToolbarModule,
         HttpClientModule,
         MatIconModule,
-        MatSidenavModule
+        MatSidenavModule,
+        BrowserAnimationsModule
       ],
       providers: [
         //{provide: HttpClient, useValue: createSpyFromClass(HttpClient)},
