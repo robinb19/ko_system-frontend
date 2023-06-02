@@ -37,9 +37,9 @@ export class FavoriteDetailComponent extends BaseComponent implements OnInit {
       const id = Number.parseInt(this.route.snapshot.paramMap.get('id') as string);
       this.favoriteTeamsService.getOne(id).subscribe(obj => {
         this.favoriteTeam = obj;
-        this.headerService.setPage('Edit Training');
+        this.headerService.setPage('Edit team');
         this.objForm = this.formBuilder.group(obj);
-        this.objForm.addControl('categoryId', new UntypedFormControl(obj.team.id));
+        this.objForm.addControl('teamId', new UntypedFormControl(obj.team.id));
       });
     } else {
       this.headerService.setPage('Add new Training');
@@ -56,6 +56,8 @@ export class FavoriteDetailComponent extends BaseComponent implements OnInit {
 
   async save(formData: any) {
     this.favoriteTeam = Object.assign(formData);
+
+    this.favoriteTeam.team = this.teams.find(o => o.id === formData.teamId) as Teams;
 
     if (this.favoriteTeam.id) {
       this.favoriteTeamsService.update(this.favoriteTeam).subscribe({

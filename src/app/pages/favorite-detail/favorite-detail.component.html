@@ -26,7 +26,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Team</mat-label>
-        <mat-select formControlName="teamId" required>
+        <mat-select formControlName="teamId" required><!--[formControl]="form.controls['teamName']"-->
           <mat-option *ngFor="let team of teams" [value]="team.id">
             {{team.teamName}}
           </mat-option>
