@@ -1,14 +1,14 @@
   <mat-toolbar>
-    <button (click)="drawer.toggle()" color="primary" mat-icon-button type="button">
+    <button (click)="drawer.toggle()" color="warn" mat-icon-button type="button">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Ko System</span>
+  <span id="title">Ko System</span>
   <span class="example-spacer"></span>
 
   <div *ngIf="oauthService.hasValidAccessToken()">
-    <button (click)="logout()" color="warn" mat-button>
+    <button (click)="logout()" color="accent" mat-button>
       <mat-icon>logout</mat-icon>
-      {{ 'logout'}}
+      Logout
     </button>
   </div>
 </mat-toolbar>
@@ -18,19 +18,19 @@
   <mat-drawer #drawer [opened]="true" class="koSystem-sidenav" mode="side">
     <div>
       <div>
-        <button [routerLink]="['dashboard']" color="primary" mat-button>
+        <button [routerLink]="['dashboard']" color="warn" mat-button>
           <mat-icon>dashboard</mat-icon>&nbsp;{{'Dashboard'}}</button>
       </div>
       <div>
-        <button [routerLink]="['teams-list']" color="primary" mat-button>
+        <button [routerLink]="['teams-list']" color="warn" mat-button>
           <mat-icon>groups</mat-icon>&nbsp;{{'Team'}}</button>
       </div>
       <div>
-        <button [routerLink]="['favorite-list']" color="primary" mat-button>
+        <button [routerLink]="['favorite-list']" color="warn" mat-button>
           <mat-icon>favorite</mat-icon>&nbsp;{{'Favorite Team' }}</button>
       </div>
       <div>
-        <button [routerLink]="['tournament-list']" color="primary" mat-button>
+        <button [routerLink]="['tournament-list']" color="warn" mat-button>
           <mat-icon>public</mat-icon>&nbsp;{{'Tournament'}}</button>
       </div>
     </div>
