@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { FavoriteTeamDetailComponent } from './pages/favorite-team-detail/favorite-team-detail.component';
 import { TournamentDetailComponent } from './pages/tournament-detail/tournament-detail.component';
-import { MemberDetailComponent } from './pages/member-detail/member-detail.component';
 import { TeamsListComponent } from './pages/teams-list/teams-list.component';
 import { TeamsDetailComponent } from './pages/teams-detail/teams-detail.component';
 import {AppRoles} from '../app.roles';
@@ -18,8 +16,6 @@ const routes: Routes = [
 */
 {path: '', component: DashboardComponent},
 {path: 'dashboard', component: DashboardComponent},
-{path: 'favorite-team', component: FavoriteTeamDetailComponent},
-{path: 'member', component: MemberDetailComponent},
 {path: 'tournament-list', component: TournamentListComponent, canActivate: [AppAuthGuard],
 data: {roles: [AppRoles.Read]}},
 {path: 'tournament-detail', component: TournamentDetailComponent, pathMatch: 'full', canActivate: [AppAuthGuard],
